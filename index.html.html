@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Jessi ❤️</title>
+    <style>
+        body {
+            background-color: #ffebf0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .carta {
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            max-width: 400px;
+            position: relative;
+        }
+        .carta::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: red;
+            clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 75%, 18% 100%, 0% 35%);
+        }
+        #mensaje {
+            font-size: 18px;
+            color: #333;
+            white-space: pre-wrap;
+            overflow: hidden;
+            border-right: 2px solid pink;
+            width: 0;
+            animation: escribir 4s steps(40) forwards;
+        }
+        @keyframes escribir {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h2>Para Jessi ❤️</h2>
+    <img src="imagen.jpg" alt="Imagen romántica" width="200" style="border-radius: 10px; margin-bottom: 15px;">
+    <div class="carta">
+    <div class="carta">
+        <p id="mensaje"></p>
+    </div>
+
+    <script>
+        const mensaje = "Eres la persona más especial en mi vida. Cada día contigo es un regalo y no hay nada que desee más que hacerte feliz. Te amo con todo mi corazón ❤️";
+        let i = 0;
+        function escribirTexto() {
+            if (i < mensaje.length) {
+                document.getElementById("mensaje").innerHTML += mensaje.charAt(i);
+                i++;
+                setTimeout(escribirTexto, 50);
+            }
+        }
+        escribirTexto();
+    </script>
+</body>
+</html>
